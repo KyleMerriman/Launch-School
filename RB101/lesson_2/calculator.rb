@@ -2,8 +2,8 @@ def prompt(message)
 	puts "=> #{message}"
 end
 
-def valid_number?(num)
-	num.to_i != 0
+def integer?(number)
+	number.to_i.to_s == number
 end
 
 def valid_operator?(operator)
@@ -35,8 +35,9 @@ loop do
 	#ask the user for the numbers, and the operator
 	loop do
 		prompt("Please enter a number.")
-		first_number = gets.chomp.to_i
-		if valid_number?(first_number)
+		first_number = gets.chomp
+		if integer?(first_number)
+			first_number = first_number.to_i
 			break
 		else
 			prompt("That's not a valid number.")
@@ -56,8 +57,9 @@ loop do
 	
 	loop do
 		prompt("Please enter the second number.")
-		second_number = gets.chomp.to_i
-		if valid_number?(second_number)
+		second_number = gets.chomp
+		if integer?(second_number)
+			second_number = second_number.to_i
 			break
 		else
 			prompt("That's not a valid number.")
